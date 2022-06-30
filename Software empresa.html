@@ -1,33 +1,36 @@
 <!DOCTYPE html>
 <html lang="es" dir="ltr">
   <head>
-
-    <title>Software de empresa </title>
-    <link rel="stylesheet" href=""/>
+   <title>Software de empresa </title>
+    <link rel="stylesheet" href="software.css"/>
   </head>
   <body>
+  <style>
+    table, th, td { border: 4px solid; color: White;}
+  </style>
     <div class="container py-2">
-    <p class="lead">ingresa los datos</p>
-    <form >
-      <input id="software" type="text" placeholder="ingresa software" class="form-control my-2">
-      <input id="empresa" type="text" placeholder="ingresa empresa" class="form-control my-2">
-      <input id="usuario" type="text" placeholder="ingresa usuario" class="form-control my-2">
-      <button id="boton" type="reset" onclick="capturar();"  class="btn bnt-success">agregar</button>
-    </form>
-    </div>
     <div class="container">
-      <table class="table" id="tabla">
-        <thead class="thead-inverse">
-          <tr>
-            <th>software</th>
-            <th>empresa</th>
-            <th>usuario</th>
-          </tr>
-        </thead>
-      </table>
-
-</div>
-    <script >
+    <p class="lead"><p style="color:white;">Ingresa los datos</p>
+    <table class="table" id="tabla">
+     <thead class="thead-inverse">
+    <form >
+      <td><input id="software" type="text" placeholder="ingresa software" class="form-control my-2"></td>
+      <td><input id="empresa"  type="text" placeholder="ingresa empresa" class="form-control my-2"></td>
+      <td><input id="usuario"  type="text" placeholder="ingresa usuario" class="form-control my-2"></td>
+      <td><button id="boton"   type="reset" onclick="capturar();"  class="btn bnt-success">Agregar</button></td>
+      <td><button id="boton2"  type="submit" onclick="color();"  class="btn bnt-success">Cambiar color</button></td>
+      <tr> 
+       <th>software</th>
+       <th>empresa</th>
+       <th>usuario</th>
+      </tr>
+    </table>
+    </thead>
+    </form> 
+    </thead>
+    </div>
+    </div>
+     <script >
       function capturar(){
         function Persona(software, empresa, usuario){
           this.software=software;
@@ -40,7 +43,8 @@
         console.log(capturarempresa);
         var capturarusuario=document.getElementById("usuario").value;
         console.log(capturarusuario);
-        sujeto= new Persona( capturarsoftware, capturarempresa, capturarusuario);//variable global
+        sujeto= new Persona( capturarsoftware, capturarempresa, capturarusuario);
+        //variable global
         agregar();
       }
       var basedatos=[];
@@ -48,7 +52,12 @@
         basedatos.push(sujeto)
         console.log(basedatos);
         document.getElementById("tabla").innerHTML += '<tbody><td>'+sujeto.software+'</td><td>'+sujeto.empresa+'</td><td>'+sujeto.usuario+'</td></tbody>';
-      };
+      }
+       function color(){
+        boton2.onclick=
+        tabla.style.background="pink";
+      
+      }  
     </script>
 
   </body>
